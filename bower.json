@@ -1,0 +1,29 @@
+{
+  "name": "gulp-browersync-boilerplate",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "tommyshao"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "gulp",
+    "boilerplate",
+    "browesync"
+  ],
+  "homepage": "https://github.com/tomieric/gulp-browersync-boilerplate",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+      "jquery": "^1.11.1",
+      "html5shiv": "~3.7.3",
+      "respond": "~1.4.2",
+      "requirejs": "^2.2.0",
+      "es5-shim": "^4.5.8"
+  }
+}

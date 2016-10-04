@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie10 lt-ie9" lang="zh-CN"><![endif]-->
+<!--[if IE 9]><html class="no-js lt-ie10" lang="zh-CN"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="zh-CN"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;chorme=1" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="xxx" />
+    <meta name="keywords" content="xxx" />
+    <meta name="Robots" content="all" />
+    <title><%= title %></title>
+    <!--[if lte IE 7]>
+    <script >
+      window.onload = function(){ location.href='upgrade.html'; }
+    </script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/main.css?v=<%= version %>">
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="css/ie-8.css?v=<%= version %>">
+    <![endif]-->
+    <!-- html5 Dom 替换方案 以支持IE7 -->
+    <!--[if lte IE 9]>
+    <script src="/bower_components/html5shiv/dist/html5shiv.min.js"></script>
+    <script src="/bower_components/respond/dest/respond.min.js"></script>
+    <script src="/bower_components/es5-shim/es5-shim.min.js"></script>
+    <![endif]-->
+    <!-- 公共js -->
+    <script>
+      // 全局require静态文件配置
+      window['webConfig'] = {
+          // 前端交互js路径
+          baseUrl: 'js/',
+          // 后端业务逻辑js路径
+          scripts : '/scripts',
+          // 版本
+          ver: '<%= version %>'
+      };
+    </script>
+    <script src="/bower_components/requirejs/require.js"></script>
+    <script src="js/config.js?v=<%= version %>"></script>  
+  </head>
+  <body<%- bodyCls ? ' class="'+ bodyCls +'"' : ''%>>

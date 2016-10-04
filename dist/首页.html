@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie10 lt-ie9" lang="zh-CN"><![endif]-->
+<!--[if IE 9]><html class="no-js lt-ie10" lang="zh-CN"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="zh-CN">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;chorme=1" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="xxx" />
+    <meta name="keywords" content="xxx" />
+    <meta name="Robots" content="all" />
+    <title>gulp-browersync-boilerplate</title>
+    <!--[if lte IE 7]>
+    <script >
+      window.onload = function(){ location.href='upgrade.html'; }
+    </script>
+    <![endif]-->
+    <link rel="stylesheet" href="./static/css/main.css?v=1.0.0">
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="./static/css/ie-8.css?v=1.0.0">
+    <![endif]-->
+    <!-- html5 Dom 替换方案 以支持IE7 -->
+    <!--[if lte IE 9]>
+    <script src="./static/js/bower_components/html5shiv/dist/html5shiv.min.js"></script>
+    <script src="./static/js/bower_components/respond/dest/respond.min.js"></script>
+    <script src="./static/js/bower_components/es5-shim/es5-shim.min.js"></script>
+    <![endif]-->
+    <!-- 公共js -->
+    <script>
+      // 全局require静态文件配置
+      window['webConfig'] = {
+        // 前端交互js路径
+        baseUrl: './static/js/',
+        // 后端业务逻辑js路径
+        scripts: '/scripts',
+        // 版本
+        ver: '1.0.0'
+      };
+    </script>
+    <script src="./static/js/bower_components/requirejs/require.js"></script>
+    <script src="./static/js/config.js?v=1.0.0"></script>
+  </head>
+  <body class="home">
+    <div class="container">
+      <h1>gulp-browsersync-boilerplate</h1>
+      <ul>
+        <li>gulp</li>
+        <li>browser-sync</li>
+        <li>requirejs</li>
+        <li>less</li>
+        <li>jQuery</li>
+      </ul>
+      <ul>
+        <li>
+          <div class="icon-vip-pc"></div>
+        </li>
+        <li>
+          <div class="icon-vip-calendar"></div>
+        </li>
+        <li>
+          <div class="icon-vip-feed"></div>
+        </li>
+        <li>
+          <div class="icon-vip-video"></div>
+        </li>
+      </ul>
+    </div>
+    <script>
+      // test
+      require(['main'])
+    </script>
+  </body>
+</html>
