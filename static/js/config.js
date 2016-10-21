@@ -14,7 +14,8 @@
     })(),
     // 别名
     paths: {
-      'jquery': '/bower_components/jquery/dist/jquery.min',
+      'components': './components',
+      'jquery': 'components/jquery/dist/jquery.min',
       'scripts': (function() {
         return config['scripts'] ? config['scripts'] : '/scripts';
       })()

@@ -2,6 +2,8 @@ node_modules/
 html/
 www/
 
+static/js/components/
+
 node_modules
 
 bower_components

@@ -2,11 +2,13 @@
  * by tommyshao
  */
 
+'use strict'
+
 var gulp   = require('gulp')
 var config = require('../../config.json')
-var pkg    = require('../../package.json')
-var path   = require('path')
-var fs     = require('fs')
+//var pkg    = require('../../package.json')
+//var path   = require('path')
+//var fs     = require('fs')
 var $      = require('gulp-load-plugins')()
 
 // http server
@@ -14,12 +16,13 @@ var browserSync = require('browser-sync').create()
 var reload      = browserSync.reload
 
 // http proxy
-var httpProxy = require('http-proxy-middleware')
+// 开启代理
+// var httpProxy = require('http-proxy-middleware')
 
 var Lib = require('../lib')
 var del = require('rimraf')
 
-module.exports = function defaultTask(serverRoot) {
+module.exports = function defaultTask() {
     // 清除旧编译的模板文件
     gulp.task('template:clean', function(cb) {
         return del(config.destPath, cb)
@@ -29,7 +32,7 @@ module.exports = function defaultTask(serverRoot) {
     gulp.task('template', function() {
         return gulp.src([config.template+'/**/**.html', '!'+config.template+'/**/_**.html', '!'+config.template+'/_**/**.html'])
                     .pipe($.ejs({ config: config}))
-                    .pipe($.prettify({ indent_size: 2}))
+                    .pipe($.prettify({ 'indent_size': 2}))
                     .pipe($.plumber({ errorHandler: $.notify.onError('错误: <%= error.message%>')}))
                     .pipe(gulp.dest(config.destPath))
                     .pipe(reload({ stream: true }))
@@ -49,14 +52,15 @@ module.exports = function defaultTask(serverRoot) {
 
     // 启动服务
     gulp.task('server', function() {
-        var jsonProxy = httpProxy('/api/', {
+        // 声明代理
+        /*var jsonProxy = httpProxy('/api/', {
             target: 'http://xxx.xxx.xxx.xxx:2016',
             changeOrigin: true,
             pathRewrite: {
                 '/api': ''
             },
             logLevel: 'debug'
-        })
+        })*/
 
         browserSync.init({
             // 界面管理工具
@@ -90,8 +94,8 @@ module.exports = function defaultTask(serverRoot) {
     gulp.task('watch', function() {
         gulp.watch(config.template + '/**/**.html', ['template'])
         gulp.watch(config.staticPath + '/less/**/**', ['less'])
-        gulp.watch(config.staticPath + '/js/**/**').on('change', browserSync.reload)
-        gulp.watch(config.staticPath + '/images/**/**').on('change', browserSync.reload)
+        gulp.watch(config.staticPath + '/js/**/**').on('change', reload)
+        gulp.watch(config.staticPath + '/images/**/**').on('change', reload)
     })
 
     /**

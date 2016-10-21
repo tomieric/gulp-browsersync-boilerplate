@@ -4,8 +4,8 @@
  * by tommyshao
  */
 
-var fs     = require('fs')
-var path   = require('path')
+'use strict'
+
 var gulp   = require('gulp')
 var $      = require('gulp-load-plugins')()
 var config = require('../../config.json')
@@ -14,7 +14,6 @@ var Lib    = require('../lib')
 var del    = require('rimraf')
 
 var browserSync = require('browser-sync').create()
-var reload      = browserSync.reload
 var httpProxy   = require('http-proxy-middleware')
 
 module.exports = function buildTask() {
@@ -23,11 +22,11 @@ module.exports = function buildTask() {
 
     gulp.task('build:template', function() {
         return gulp.src(['./'+ config.destPath + '/**/**.html'])
-                    .pipe($.prettify({ indent_size: 2 }))
+                    .pipe($.prettify({ 'indent_size': 2 }))
                     .pipe($.replace(/\/static/g, './static'))
                     .pipe($.replace(/"(js|css|images|fonts)(\/)/g, '"./static/$1/'))
                     .pipe($.replace(/'(js|css|images|fonts)(\/)/g, '\'./static/$1/'))
-                    .pipe($.replace(/(\/)(bower_components)\//g, './static/js/$2/'))
+                    //.pipe($.replace(/(\/)(bower_components)\//g, './static/js/$2/'))
                     .pipe(gulp.dest(tempFolder))
     })
 
@@ -54,17 +53,12 @@ module.exports = function buildTask() {
     gulp.task('build:js', function(){
       return gulp.src([config.staticPath+'/js/**/**.js'], {base: 'client'})
             .pipe($.plumber( { errorHandler: $.notify.onError('错误: <%= error.message %>') } ))
-            .pipe($.replace(/(\/)(bower_components)(\/)/g, '$2$3'))
+            //.pipe($.replace(/(\/)(bower_components)(\/)/g, '$2$3'))
             .pipe($.uglify({mangle: false}))
             .pipe($.header(Lib.banner, { pkg: pkg}))
             .pipe(gulp.dest(tempFolder + config.static))
             .pipe($.size({showFiles: true, title: 'minified'}))
             .pipe($.size({showFiles: true, gzip: true, title: 'gzipped'}))
-  })
-
-  gulp.task('build:bower', function() {
-      return gulp.src(config.bower_components.slice(1)+'/**/**')
-                .pipe(gulp.dest(tempFolder + config.static + '/js' + config.bower_components))
   })
 
   gulp.task('build:images', function(){
@@ -152,7 +146,7 @@ module.exports = function buildTask() {
           'template:clean',
           'template',
           'build:js:copy',
-          [ 'build:copy', 'build:css', 'build:js', 'build:images','build:images:sprite', 'build:bower', 'build:template'], // 先构建，生成到临时文件夹 temp
+          [ 'build:copy', 'build:css', 'build:js', 'build:images','build:images:sprite',  'build:template'], // 先构建，生成到临时文件夹 temp
           'clean:dist',  // 清除之前发布内容
           'bundle',      // 拷贝temp 内容到发布目录
           'build:server',   // 启动服务人工检查对比页面

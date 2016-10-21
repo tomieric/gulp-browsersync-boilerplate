@@ -81,7 +81,7 @@
         "quotes": [2, "single"],
         "quote-props": 0,
         "radix": 0,
-        "semi": 2,
+        "semi": 0,
         "strict": 2,
         "unnecessary-strict": 0,
         "use-isnan": 2,

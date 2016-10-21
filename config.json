@@ -8,7 +8,6 @@
     "destPath" : "www",
     "bundlePath": "./dist",
     "bundlePort": 3001,
-    "bower_components": "/bower_components",
     "version": "1.0.0",
     "sprite_padding": 20,
     "bodyCls": ""
