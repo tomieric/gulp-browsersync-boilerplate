@@ -101,3 +101,12 @@ npm run build
     "bodyCls": ""                            模板预先设置 body 标签类名
 }
 ```
+
+## js 文件使用 ES6版本编译
+
+
+### 创建项目
+
+```
+git clone https://github.com/tomieric/gulp-browsersync-boilerplate.git [projectName] -b es6-feature
+```
