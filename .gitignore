@@ -3,6 +3,7 @@ html/
 www/
 
 static/js/components/
+static/js/vendor/
 
 node_modules
 
