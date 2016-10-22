@@ -14,8 +14,8 @@
     })(),
     // 别名
     paths: {
-      'vendor': './vendor',
-      'jquery': 'vendor/jquery/dist/jquery.min',
+      'components': './components',
+      'jquery': 'components/jquery/dist/jquery.min',
       'scripts': (function() {
         return config['scripts'] ? config['scripts'] : '/scripts';
       })()

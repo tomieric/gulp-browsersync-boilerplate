@@ -13,6 +13,12 @@
 .
 ├── README.MD
 ├── bower.json
+├── bower_components
+│   ├── es5-shim
+│   ├── html5shiv
+│   ├── jquery
+│   ├── requirejs
+│   └── respond
 ├── config.json      配置文件
 ├── dist             构建生成目录
 ├── gulp             gulp 任务配置
@@ -29,12 +35,6 @@
 │   ├── fonts
 │   ├── images
 │   ├── js
-│        ├── vendor
-│   ├── es5-shim
-│   ├── html5shiv
-│   ├── jquery
-│   ├── requirejs
-│   └── respond
 │   └── less
 ├── template           ejs模板
 │   ├── _common

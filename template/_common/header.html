@@ -23,9 +23,9 @@
     <![endif]-->
     <!-- html5 Dom 替换方案 以支持IE7 -->
     <!--[if lte IE 9]>
-    <script src="js/vendor/html5shiv/dist/html5shiv.min.js"></script>
-    <script src="js/vendor/respond/dest/respond.min.js"></script>
-    <script src="js/vendor/es5-shim/es5-shim.min.js"></script>
+    <script src="/bower_components/html5shiv/dist/html5shiv.min.js"></script>
+    <script src="/bower_components/respond/dest/respond.min.js"></script>
+    <script src="/bower_components/es5-shim/es5-shim.min.js"></script>
     <![endif]-->
     <!-- 公共js -->
     <script>
@@ -39,7 +39,7 @@
           ver: '<%= version %>'
       };
     </script>
-    <script src="js/vendor/requirejs/require.js"></script>
+    <script src="js/components/requirejs/require.js"></script>
     <script src="js/config.js?v=<%= version %>"></script>  
   </head>
   <body<%- bodyCls ? ' class="'+ bodyCls +'"' : ''%>>
